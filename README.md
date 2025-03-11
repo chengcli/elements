@@ -1,4 +1,8 @@
 # Elements library
+
+[![build](https://github.com/chengcli/elements/actions/workflows/linux.yml/badge.svg)](https://github.com/chengcli/elements/actions/workflows/linux.yml)
+[![build](https://github.com/chengcli/elements/actions/workflows/mac.yml/badge.svg)](https://github.com/chengcli/elements/actions/workflows/mac.yml)
+
 This is a small library contains functions for working with atomic data and chemical compounds.
 It strips the functions and data from a customized [Cantera](https://github.com/chengcli/cantera) 
 library. This repo provides a standalone library for working with just elements and compounds.
