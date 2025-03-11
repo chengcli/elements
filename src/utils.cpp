@@ -1,10 +1,19 @@
 // C/C++
 #include <algorithm>
 #include <cctype>
-#include <iostream>
 #include <string>
 
-namespace kintera {
+// elements
+#include "utils.hpp"
+
+namespace elements {
+
+std::string to_lower_copy(const std::string& str) {
+    std::string lower_str = str;
+    std::transform(lower_str.begin(), lower_str.end(), lower_str.begin(),
+                   [](unsigned char c) { return std::tolower(c); });
+    return lower_str;
+}
 
 std::string trim_copy(const std::string& str) {
   // Find first non-whitespace character
@@ -20,4 +29,4 @@ std::string trim_copy(const std::string& str) {
   return (start < end) ? std::string(start, end) : std::string();
 }
 
-}  // namespace kintera
+}  // namespace elements

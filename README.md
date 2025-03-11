@@ -1,7 +1,7 @@
 # Elements library
-This is a small library contains functions for working with atomic data.
-It strips the functions and data from the `Cantera` library and provides a 
-standalone library for working with elements and atomic data.
+This is a small library contains functions for working with atomic data and chemical compounds.
+It strips the functions and data from a customized [Cantera](https://github.com/chengcli/cantera) 
+library. This repo provides a standalone library for working with just elements and compounds.
 
 ## Folder structure
 ```
@@ -15,15 +15,20 @@ standalone library for working with elements and atomic data.
 │   │   ├── macro_setup_problem.cmake
 │   │   └── macro_setup_test.cmake
 │   └── modules
-└── src
+├── examples
+│   └── CMakeLists.txt
+├── src
+│   ├── CMakeLists.txt
+│   ├── compound.cpp
+│   ├── compound.hpp
+│   ├── constants.hpp
+│   ├── element.cpp
+│   ├── element.hpp
+│   ├── utils.cpp
+│   └── utils.hpp
+└── tests
     ├── CMakeLists.txt
-    ├── constants.hpp
-    ├── elements.cpp
-    ├── elements.hpp
-    ├── to_lower_copy.cpp
-    ├── to_lower_copy.hpp
-    ├── trim_copy.cpp
-    └── trim_copy.hpp
+    └── test_composition.cpp
 ```
 
 ## Main functions
@@ -31,3 +36,5 @@ standalone library for working with elements and atomic data.
 - `elements::get_element_name` - returns the name of the element.
 - `elements::get_element_symbol` - returns the symbol of the element.
 - `elements::get_atomic_number` - returns the atomic number of the element.
+- `elements::get_composition` - returns the composition of the compound.
+- `elements::get_compound_weight` - returns the molecular weight of the compound.

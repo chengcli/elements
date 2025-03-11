@@ -29,22 +29,17 @@ file(GLOB src_files
   )
 
 add_library(${namel}_${buildl}
-    STATIC
-    ${src_files}
-    )
+  STATIC
+  ${src_files}
+  )
 
 set_target_properties(${namel}_${buildl}
-    PROPERTIES
-    COMPILE_FLAGS "${CMAKE_CXX_FLAGS_${buildu}}"
-    )
-
-target_link_libraries(${namel}_${buildl}
-    PUBLIC
-    fmt::fmt
-    )
+  PROPERTIES
+  COMPILE_FLAGS "${CMAKE_CXX_FLAGS_${buildu}}"
+  )
 
 add_library(elements::elements ALIAS ${namel}_${buildl})
 
-set(KINTERA_INCLUDE_DIR
+set(ELEMENTS_INCLUDE_DIR
   "${CMAKE_CURRENT_SOURCE_DIR}"
   CACHE INTERNAL "elements include directory")

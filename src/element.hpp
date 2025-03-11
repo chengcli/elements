@@ -7,10 +7,6 @@
 
 namespace elements {
 
-//! Map from string names to doubles. Used for defining species mole/mass
-//! fractions, elemental compositions, and reaction stoichiometries.
-typedef std::map<std::string, double> Composition;
-
 //! \return a vector of all element symbols
 const std::vector<std::string>& element_symbols();
 

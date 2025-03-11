@@ -3,8 +3,10 @@
 // C/C++
 #include <string>
 
-namespace kintera {
+namespace elements {
 
 std::string to_lower_copy(const std::string& str);
 
-}  // namespace kintera
+std::string trim_copy(const std::string& str);
+
+}  // namespace elements

@@ -6,8 +6,7 @@
 // elements
 #include "element.hpp"
 #include "constants.hpp"
-#include "to_lower_copy.hpp"
-#include "trim_copy.hpp"
+#include "utils.hpp"
 
 namespace elements {
 
