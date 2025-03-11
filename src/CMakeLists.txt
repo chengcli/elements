@@ -1,40 +1,31 @@
-# Install kintera library
+# Install elements library
 #
-#   library: libkintera_debug.o
-#   library: libkintera_release.o
+#   library: libelements_debug.o
+#   library: libelements_release.o
 #
 # Define the following symbols
 #
-#   KINTERA_INCLUDE_DIR
-#   kintera::kintera
-#   kintera::kintera_cu
+#   ELEMENTS_INCLUDE_DIR
+#   elements::elements
 #
 # Normal usage would be:
 #
-#   include_directories(${KINTERA_INCLUDE_DIR})
-#   target_link_libraries(kintera::kintera)
+#   include_directories(${ELEMENTS_INCLUDE_DIR})
+#   target_link_libraries(elements::elements)
 
 include_directories(
-  "${CMAKE_CURRENT_SOURCE_DIR}/.."
+  ${CMAKE_CURRENT_SOURCE_DIR}
   ${CMAKE_BINARY_DIR}
-  SYSTEM ${TORCH_API_INCLUDE_DIR}
-  SYSTEM ${TORCH_INCLUDE_DIR}
-  SYSTEM ${FMT_INCLUDE_DIR}
-  SYSTEM ${YAML_CPP_INCLUDE_DIR}
   )
 
 string(TOLOWER ${CMAKE_BUILD_TYPE} buildl)
 string(TOUPPER ${CMAKE_BUILD_TYPE} buildu)
 
-set(namel kintera)
+set(namel elements)
 string(TOUPPER ${namel} nameu)
 
 file(GLOB src_files
   *.cpp
-  math/*.cpp
-  xsection/*.cpp
-  utils/*.cpp
-  kinetics/*.cpp
   )
 
 add_library(${namel}_${buildl}
@@ -52,31 +43,8 @@ target_link_libraries(${namel}_${buildl}
     fmt::fmt
     )
 
-add_library(kintera::kintera ALIAS ${namel}_${buildl})
-
-# CUDA source codes
-if (CUDAToolkit_FOUND)
-  file(GLOB cu_src_files *.cu)
-
-  add_library(${namel}_cuda_${buildl}
-      STATIC
-      ${cu_src_files}
-      )
-
-  set_target_properties(${namel}_cuda_${buildl}
-      PROPERTIES
-      CUDA_SEPARABLE_COMPILATION ON
-      )
-
-  target_link_libraries(${namel}_cuda_${buildl}
-      PUBLIC
-      $<IF:$<BOOL:${CUDAToolkit_FOUND}>,CUDA::cudart,>
-      $<IF:$<BOOL:${CUDAToolkit_FOUND}>,CUDA::cudart_static,>
-      )
-
-  add_library(kintera::kintera_cu ALIAS ${namel}_cuda_${buildl})
-endif()
+add_library(elements::elements ALIAS ${namel}_${buildl})
 
 set(KINTERA_INCLUDE_DIR
-  "${CMAKE_CURRENT_SOURCE_DIR}/.."
-  CACHE INTERNAL "kintera include directory")
+  "${CMAKE_CURRENT_SOURCE_DIR}"
+  CACHE INTERNAL "elements include directory")

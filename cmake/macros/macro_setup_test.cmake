@@ -9,23 +9,16 @@ macro(setup_test namel)
   add_executable(${namel}.${buildl} ${namel}.cpp)
 
   set_target_properties(${namel}.${buildl}
-                        PROPERTIES COMPILE_FLAGS ${CMAKE_CXX_FLAGS_${buildu}})
+    PROPERTIES COMPILE_FLAGS ${CMAKE_CXX_FLAGS_${buildu}}
+  )
 
-  target_include_directories(
-    ${namel}.${buildl}
-    PRIVATE ${CMAKE_BINARY_DIR} ${KINTERA_INCLUDE_DIR} SYSTEM
-            ${TORCH_INCLUDE_DIR} SYSTEM ${TORCH_API_INCLUDE_DIR})
+  target_include_directories(${namel}.${buildl}
+    PRIVATE ${CMAKE_BINARY_DIR} ${KINTERA_INCLUDE_DIR}
+  )
 
-  target_link_libraries(
-    ${namel}.${buildl}
-    PRIVATE kintera::kintera
-            yaml-cpp
-            ${TORCH_LIBRARY}
-            ${TORCH_CPU_LIBRARY}
-            ${C10_LIBRARY}
-            $<IF:$<BOOL:${CUDAToolkit_FOUND}>,kintera::kintera_cuda,>
-            $<IF:$<BOOL:${CUDAToolkit_FOUND}>,${TORCH_CUDA_LIBRARY},>
-            $<IF:$<BOOL:${CUDAToolkit_FOUND}>,${C10_CUDA_LIBRARY},>)
+  target_link_libraries(${namel}.${buildl}
+    PRIVATE elements::elements
+  )
 
   add_test(NAME ${namel}.${buildl} COMMAND ${namel}.${buildl})
 endmacro()
