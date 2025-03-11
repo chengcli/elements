@@ -2,6 +2,7 @@
 
 [![build](https://github.com/chengcli/elements/actions/workflows/linux.yml/badge.svg)](https://github.com/chengcli/elements/actions/workflows/linux.yml)
 [![build](https://github.com/chengcli/elements/actions/workflows/mac.yml/badge.svg)](https://github.com/chengcli/elements/actions/workflows/mac.yml)
+[![License](https://img.shields.io/badge/license-MIT-blue)](https://img.shields.io/badge/license-MIT-blue)
 
 This is a small library contains functions for working with atomic data and chemical compounds.
 It strips the functions and data from a customized [Cantera](https://github.com/chengcli/cantera) 
