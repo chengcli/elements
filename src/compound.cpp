@@ -75,7 +75,7 @@ double get_compound_weight(const Composition& composition) {
   for (const auto& [element, count] : composition) {
     weight += count * get_element_weight(element);
   }
-  return weight;
+  return weight * 1.e-3;  // kg/kmol -> kg/mol
 }
 
 } // namespace elements
