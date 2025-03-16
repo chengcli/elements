@@ -1,4 +1,4 @@
-name: Mac-Build
+name: Unit-Tests
 on:
   push:
     branches:
@@ -13,13 +13,15 @@ on:
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: Release
-  BUILD_FLAG: -fprofile-instr-generate -fcoverage-mapping
   ACCOUNT: chengcli
 
 jobs:
   unit-tests:
     if: github.event.pull_request.draft == false
     runs-on: macos-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macOS-latest]
     steps:
       - uses: actions/checkout@v3
         with:

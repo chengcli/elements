@@ -2,7 +2,7 @@
 #include <iostream>
 
 // elements
-#include "compound.hpp"
+#include <elements/compound.hpp>
 
 int main() {
   std::string formula = "C6H12O6";

@@ -13,7 +13,7 @@ macro(setup_test namel)
   )
 
   target_include_directories(${namel}.${buildl}
-    PRIVATE ${CMAKE_BINARY_DIR} ${ELEMENTS_INCLUDE_DIR}
+    PRIVATE ${CMAKE_BINARY_DIR} "${ELEMENTS_INCLUDE_DIR}/.."
   )
 
   target_link_libraries(${namel}.${buildl}
