@@ -53,3 +53,6 @@ This function takes a string of a chemical compound and returns a composition ma
 
 - `elements::get_compound_weight`
 This function takes a composition map and returns the weight of the compound.
+
+### Staying updated
+If you have forked this repository, please enable notifications or `watch` for updates!
