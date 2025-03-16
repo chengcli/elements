@@ -1,7 +1,6 @@
 # Elements library
 
-[![build](https://github.com/chengcli/elements/actions/workflows/linux.yml/badge.svg)](https://github.com/chengcli/elements/actions/workflows/linux.yml)
-[![build](https://github.com/chengcli/elements/actions/workflows/mac.yml/badge.svg)](https://github.com/chengcli/elements/actions/workflows/mac.yml)
+[![build](https://github.com/chengcli/elements/actions/workflows/main.yml/badge.svg)](https://github.com/chengcli/elements/actions/workflows/main.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](https://img.shields.io/badge/license-MIT-blue)
 
 This is a small library contains functions for working with atomic data and chemical compounds.
