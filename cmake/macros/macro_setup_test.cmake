@@ -9,7 +9,8 @@ macro(setup_test namel)
   add_executable(${namel}.${buildl} ${namel}.cpp)
 
   set_target_properties(${namel}.${buildl}
-    PROPERTIES COMPILE_FLAGS ${CMAKE_CXX_FLAGS_${buildu}}
+    PROPERTIES
+    COMPILE_FLAGS ${CMAKE_CXX_FLAGS_${buildu}}
   )
 
   target_include_directories(${namel}.${buildl}
