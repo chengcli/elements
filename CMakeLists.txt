@@ -17,7 +17,7 @@ project(
 cmake_policy(SET CMP0074 NEW)
 
 # Set the _GLIBCXX_USE_CXX11_ABI flag to 0 (use old ABI)
-add_definitions(-D_GLIBCXX_USE_CXX11_ABI=0)
+#add_definitions(-D_GLIBCXX_USE_CXX11_ABI=0)
 
 # Set MacOS deployment target
 set(CMAKE_OSX_DEPLOYMENT_TARGET "15.0")
